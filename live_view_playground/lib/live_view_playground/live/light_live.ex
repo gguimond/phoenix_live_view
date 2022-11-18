@@ -24,4 +24,19 @@ defmodule LiveViewPlaygroundWeb.LightLive do
     socket = update(socket, :brightness, &min(&1 + 10, 100))
     {:noreply, socket}
   end
+
+  def handle_event("half", params, socket) do
+    IO.inspect(params)
+    socket = assign(socket, :brightness, params["brightness"])
+
+    {:noreply,
+     push_patch(socket,
+       to: Routes.live_path(socket, LiveViewPlaygroundWeb.LightLive, params)
+     )}
+  end
+
+  def handle_params(params, _uri, socket) do
+    socket = assign(socket, :brightness, 50)
+    {:noreply, socket}
+  end
 end
