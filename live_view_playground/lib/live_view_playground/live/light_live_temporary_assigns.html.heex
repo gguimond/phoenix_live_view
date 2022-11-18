@@ -1,0 +1,9 @@
+<h1>Front Porch Light Messages</h1>
+<div id="messages" phx-update="append">
+  <%= for message <- @messages do %>
+    <p id={message.id}><%= message.msg %></p>
+  <% end %>
+</div>
+<button phx-click="new" phx-value-msg="toto">
+New message
+</button>

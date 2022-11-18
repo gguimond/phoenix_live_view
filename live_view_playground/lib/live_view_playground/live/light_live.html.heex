@@ -23,3 +23,5 @@ Up
 <button phx-click="half" phx-value-brightness="50">
 Half
 </button>
+
+<%= live_redirect "new_temporary_assigns", to: Routes.live_path(@socket, LiveViewPlaygroundWeb.LightLiveTemporaryAssigns) %>

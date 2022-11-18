@@ -19,6 +19,7 @@ defmodule LiveViewPlaygroundWeb.Router do
 
     get("/", PageController, :index)
     live("/light", LightLive)
+    live("/light-msg", LightLiveTemporaryAssigns)
   end
 
   # Other scopes may use custom stacks.
